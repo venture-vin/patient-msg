@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'csv'
 
-CSV.foreach("patients.csv", :headers => true) do |row|
+CSV.foreach("db/patients.csv", :headers => true) do |row|
   Patient.create!(row.to_hash)
 end
 
