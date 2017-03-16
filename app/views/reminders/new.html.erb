@@ -2,7 +2,7 @@
 <%= form_for :reminder do |f| %>
   <p>
     <%= f.label :title %><br>
-    <%= f.collection_select :provider_id, Patient.order(:last_name),:id,:name, include_blank: true %>
+    <%= f.collection_select :patient_id, Patient.order(:last_name),:id,:last_name, include_blank: true %>
   </p>
 
   <p>
