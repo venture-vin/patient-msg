@@ -1,0 +1,16 @@
+
+<%= form_for :reminder, url: reminder_path do |f| %>
+  <p>
+    <%= f.label :patients %><br>
+    <%= f.collection_select :patient_id, @patients.order(:last_name),:id,:last_name%>
+  </p>
+
+  <p>
+    <%= f.label :message %><br>
+    <%= f.text_area :text, placeholder: "Hi there @first_name @last_name! Is @phone_number still the best number to reach you?", name: "user_message" %>
+  </p>
+
+  <p>
+    <%= f.submit "Submit"%>
+  </p>
+<% end %>
