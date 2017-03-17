@@ -1,4 +1,6 @@
 class RemindersController < ApplicationController
+  include ActionView::Helpers::NumberHelper
+
   def new
     @patients = Patient.all
   end
@@ -8,7 +10,7 @@ class RemindersController < ApplicationController
     @msg = params[:user_message]
     @first_name = @patient.first_name
     @last_name = @patient.last_name
-    @phone_number = @patient.phone_number
+    @phone_number = number_to_phone(@patient.phone_number, area_code: true)
 
     render "show"
   end
